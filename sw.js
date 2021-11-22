@@ -25,6 +25,24 @@ const appShellFiles = [
   });
 
   self.addEventListener('fetch', (e) => {
+    var extension = e.request.url.split('.').pop();
+    if(extension == "html" || extension == "png" || extension == "css" ||  extension == "ico" ){
+        event.respondWith(caches.match(event.request));
+    }else{
+        event.respondWith(
+            caches.open(cacheName).then(function (cache) {
+              return cache.match(event.request).then(function (response) {
+                return (
+                  response ||
+                  fetch(event.request).then(function (response) {
+                    cache.put(event.request, response.clone());
+                    return response;
+                  })
+                );
+              });
+            }),
+          );
+    }
     e.respondWith((async () => {
       const r = await caches.match(e.request);
       console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
