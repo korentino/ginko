@@ -1,0 +1,27 @@
+{
+    "name": "GinkoBus Nom",
+    "short_name": "GinkoBus",
+    "description": "C pour war les bus",
+    "icons": [
+      {
+        "src": "icons/icon-32.png",
+        "sizes": "32x32",
+        "type": "image/png"
+      },
+      {
+        "src": "icons/icon-512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "icons/maskable_icon.png",
+        "sizes": "274x274",
+        "type": "image/png",
+        "purpose" : "any maskable"
+      }
+    ],
+    "start_url": "https://korentino.github.io/ginko/index.html",
+    "display": "fullscreen",
+    "theme_color": "#B12A34",
+    "background_color": "#B12A34"
+  }
